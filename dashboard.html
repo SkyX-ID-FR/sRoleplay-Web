@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 </head>
 
 <body>
@@ -11,7 +11,10 @@
     <div id="name"></div>
     <a href="/" class="text-sm mt-5">Logout</a>
 
-    <script>
+    <div id="div"></div>
+</body>
+
+<script type="text/javascript">
     window.onload = () => {
         const fragment = new URLSearchParams(window.location.hash.slice(1));
         const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
@@ -21,15 +24,31 @@
             return (document.getElementById('login').style.display = 'block');
         }
 
-        /* console.log -> all servers who user is on : */
+        /* SERVER PART : ==================================== */     
+        let end_text = "";
+
         fetch('https://discord.com/api/users/@me/guilds', {
                 headers: {
                     authorization: `${tokenType} ${accessToken}`,
                 },
             })
-        .then(request => request.json())
-        .then(res => {console.log(res)});
 
+        .then(request => request.json())
+        .then(data => {
+            for (var i = 0; i < data.length; i++) {
+                end_text += "<img src='https://cdn.discordapp.com/icons/" + data[i].id + "/" + data[i].icon + ".png'/>";
+
+                /* console.log(data[i].name); */
+                /* console.log(result[i].id);
+                console.log(result[i].icon);
+                console.log(result[i].owner); */
+            } 
+
+            document.getElementById("div").innerHTML = end_text;
+        });
+        /* ==================================== */
+
+        /* USER PART : ==================================== */
         fetch('https://discord.com/api/users/@me', {
             headers: {
                 authorization: `${tokenType} ${accessToken}`,
@@ -38,16 +57,16 @@
 
         .then(result => result.json())
         .then(response => {
-            console.log(response);
+            /* console.log(response); */
             const { username, discriminator, avatar, id} = response;
 
             document.getElementById('name').innerText = ` ${username}#${discriminator}`;
             document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${id}/${avatar}.jpg`;
         })
         .catch(console.error);
+        /* ==================================== */
     };
-    </script>
-</body>
+</script>
 
 </html>
 <!-- END -->
