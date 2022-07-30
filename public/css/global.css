@@ -14,6 +14,7 @@ html, body {
     margin: 0px;
     height: 100%;
     font-size: normal;
+    width: 100%;
     font-family: 'Noto Sans', sans-serif;
 }
 
@@ -171,11 +172,13 @@ html #dashboard {
 }
 
 html #sidebar {
+    z-index: 9999999;
     background-color: #111113;
     width: 100px;
-    height: 100vh;
+    height: 100%;
     grid-area: 2 / 1 / 6 / 2;
-    margin-top: -70px;
+    bottom: 0;
+    position: fixed;
 }
 
 html #sidebar .app_logo {
@@ -188,7 +191,7 @@ html #sidebar .app_logo {
 html #sidebar ul {
     list-style-type: none;
     margin-left: -10px;
-    padding-top: 70px;
+    padding-top: 50px;
 }
 
 html #sidebar ul #logout {
@@ -207,12 +210,65 @@ html #sidebar ul li svg {
 }
 
 html header {
-    background-color: red;
-    width: 100%-100px;
-    height: 70px;
+    width: 100%;
+    height: 80px;
     grid-area: 1 / 1 / 2 / 6;
-    margin-left: 100px;
+    position: fixed;
+    z-index: 9999999;
+}
+
+html header #search-bar {
+    width: 600px;
+    border-color: transparent;
+    border-radius: 10px;
+    padding-left: 45px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 35%;
+    background-color: #111113;
+    color: white;
+    outline: none;
+}
+
+html header #search-icon {
+    stroke: white;
+    width: 20px;
+    position: absolute;
+    margin-left: -655.5px;
+    margin-top: 26px;
+}
+
+html header #bell {
+    stroke: white;
+    width: 27px;
+    height: 27px;
+    float: right;
+    margin-right: 15px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+html header #user-picture {
+    border-radius: 100%;
+    width: 40px;
+    margin-top: 15px;
+    float: right;
+    margin-right: 110px;
+    cursor: pointer;
 }
 /* END OF DASHBOARD PAGE */
+
+/* CONTENT PAGE : */
+html #content {
+    padding: 20px;
+    margin-left: -327px;
+    height: 100%;
+    margin-top: -140px;
+    grid-area: 2 / 2 / 6 / 6;
+    padding: 20px;
+}
+/* END OF CONTENT PAGE */
 
 /* END */
