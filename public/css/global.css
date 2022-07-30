@@ -237,7 +237,7 @@ html header #search-icon {
     width: 20px;
     position: absolute;
     margin-left: -655.5px;
-    margin-top: 26px;
+    margin-top: 27px;
 }
 
 html header #bell {
@@ -262,12 +262,11 @@ html header #user-picture {
 
 /* CONTENT PAGE : */
 html #content {
-    padding: 20px;
-    margin-left: -327px;
-    height: 100%;
     margin-top: -140px;
+    margin-left: -330px;
     grid-area: 2 / 2 / 6 / 6;
-    padding: 20px;
+    padding-left: 40px;
+    padding-top: 30px;
 }
 /* END OF CONTENT PAGE */
 
