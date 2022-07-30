@@ -14,23 +14,37 @@
   <meta charset="UTF-8">
   <title>sRolePlay App</title>
   <link rel="icon" href="https://zupimages.net/up/22/30/dyc4.png"/>
-  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet"  type="text/css" href="css/global.css"/>
 </head>
 
 <body id="index">
-	<div class="middle-box">
-		<center>
-			<h1>sRolePlay <img src="https://zupimages.net/up/22/30/dyc4.png" alt="app_logo"/></h1>
-			<p class="description">Connectez-vous à l'aide de votre compte Discord et autoriser l'application à accèder aux différentes fonctions requises ainsi vous pourrez découvrir le panel de sRolePlay.</p>
+	<a id="back" href="https://sroleplay.fr/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Revenir au site du bot 🤖</a>
 
-			<a id="login" href="https://discord.com/api/oauth2/authorize?client_id=1002515570085863454&redirect_uri=http%3A%2F%2Flocalhost%3A53134%2Fauth%2Fdiscord&response_type=token&scope=identify%20email%20guilds">
-				<button>Continuer avec Discord <img src="https://www.seekpng.com/png/full/20-205511_discord-transparent-staff-discord-logo-black-and-white.png"/></button>
-			</a>
-
-			<p class="authors">Made with <font color="red">❤</font> by SkyX [ID FR]</p>
-		</center>
+	<div class="index-content">
+		<div class="middle-box">
+			<center>
+				<h1>sRolePlay <img src="https://zupimages.net/up/22/30/dyc4.png" alt="app_logo"/></h1>
+				<p class="description">Connectez-vous à l'aide de votre compte Discord et autoriser l'application à accèder aux différentes fonctions requises ainsi vous pourrez découvrir le panel de sRolePlay.</p>
+				
+				<button id="next_step_button" onclick="next_step_button()">Continuer avec Discord <img src="https://www.seekpng.com/png/full/20-205511_discord-transparent-staff-discord-logo-black-and-white.png"/></button> 
+				<img id="loader" src="https://i.gifer.com/ZZ5H.gif"/>
+				
+				<p class="authors"><!-- Version 1.0 - --> Made with <font color="red">❤</font> by SkyX [ID FR]</p>
+			</center>
+		</div>
 	</div>
 </body>
+
+<script type="text/javascript">
+	function next_step_button() {
+		document.getElementById("loader").style.display = "block";
+		document.getElementById("next_step_button").style.display = "none";
+
+		setTimeout(function(){
+			document.location.href = "https://discord.com/api/oauth2/authorize?client_id=1002515570085863454&redirect_uri=http%3A%2F%2Flocalhost%3A53134%2Fauth%2Fdiscord&response_type=token&scope=identify%20email%20guilds";
+		}, 2000);
+	}
+</script>
 
 </html>
 <!-- END -->

@@ -11,6 +11,9 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
+const port = '53134';
+app.listen(port, () => console.log(`Server started at http://localhost:${port} !`));
+
 app.use('',express.static(path.join(__dirname, 'public')));
 
 app.get('/', (request, response) => {
@@ -20,6 +23,3 @@ app.get('/', (request, response) => {
 app.get('/auth/discord', (request, response) => {
 	return response.sendFile('public/dashboard.html', { root: '.' });
 });
-
-const port = '53134';
-app.listen(port, () => console.log(`Server started at http://localhost:${port} !`));
