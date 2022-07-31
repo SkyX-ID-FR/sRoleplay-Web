@@ -263,11 +263,141 @@ html header #user-picture {
 /* CONTENT PAGE : */
 html #content {
     margin-top: -140px;
-    margin-left: -330px;
+    margin-left: -20%;
     grid-area: 2 / 2 / 6 / 6;
-    padding-left: 40px;
+    padding-left: 7%;
     padding-top: 30px;
 }
+
+html #content .welcome-text {
+    font-size: 55px;
+    letter-spacing: 1px;
+}
+
+html #content .welcome-description {
+    width: 950px;
+    margin-top: -30px;
+    font-size: 14px;
+}
+
+html #content .external-links {
+    list-style-type: none;
+    margin-left: -60px;
+}
+
+html #content .external-links li {
+    float: left;
+    margin-left: 20px;
+    cursor: pointer;
+    color: #414853;
+}
+
+html #content .external-links li:hover {
+    color: #7682a3;
+}
+
+html #content .external-links li svg {
+    width: 15px;
+}
+
+html #content .external-links li img {
+    width: 25px;
+    margin-top: 6px;
+    margin-right: 10px;
+    float: left;
+}
+
+html #content .server-text {
+    margin-top: 150px;
+    font-size: 40px;
+}
+
+html #content .server-description {
+    width: 700px;
+    font-size: 14px;
+    margin-top: -20px;
+    margin-bottom: 40px;
+}
+
+html #content #servers-list {
+    /* background-color: red; */
+    width: 1100px;
+}
+
+html #content #servers-list .item {
+    width: 70px;
+    border-radius: 100%;
+    margin-right: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+html #content #servers-list .item:hover {
+    transition: all 0.3s;
+    transform: scale(1.2);
+}
 /* END OF CONTENT PAGE */
+
+html .sidebar-menu {
+    background-color: #111113;
+    height: 100vh;
+    width: 270px;
+    padding-left: 30px;
+    padding-top: 25px;
+    right: 0; 
+    top: 0;
+    z-index: 99999999999999;
+    position: fixed;
+}
+
+html .sidebar-menu p {
+    font-size: 15px;
+}
+
+html .sidebar-menu button {
+    border-color: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: #202225;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+html .sidebar-menu button:hover {
+    transition: all 0.5s;
+    transform: scale(1.1);
+}
+
+html .sidebar-menu button img {
+    float: right;
+    margin-top: -6px;
+    margin-left: 5px;
+}
+
+html .sidebar-menu #close {
+    stroke: white;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* LOADER STYLE : */
+#loader-2 {
+    width: 30px;
+    height: 32px;
+    padding: 10px;
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 20%;
+}
+
+#loader-2 img {
+    width: 30px;
+}
+/* END OF LOADER STYLE */
 
 /* END */

@@ -14,13 +14,10 @@
     <title>sRolePlay Dashboard</title>
     <link rel="icon" href="https://zupimages.net/up/22/30/dyc4.png"/>
     <link rel="stylesheet" type="text/css" href="../css/global.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<!-- 
-    <div id="name"></div>
-    <a href="/" class="text-sm mt-5">Logout</a>
-    <div id="servers"></div> 
--->
+<!-- <a href="/" class="text-sm mt-5">Logout</a> -->
 
 <body id="dashboard">
     <header>
@@ -28,6 +25,10 @@
         <svg id="bell" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
         <input type="text" placeholder="Search anythings, cryptos, trading.." id="search-bar"><svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></input>
     </header>
+
+    <div id="loader-2">
+        <img src="https://i.gifer.com/ZZ5H.gif"/>
+    </div>
 
     <div id="sidebar">
         <img class="app_logo" src="https://zupimages.net/up/22/30/dyc4.png"/>
@@ -39,12 +40,43 @@
         </ul>
     </div>
 
+    <div class="sidebar-menu" id="servers">
+        <a onclick="close_servers_item_details();" id="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+        <p>Pour inviter sRolePlay Bot sur vos serveurs, cliquez sur le bouton ci-dessous :</p>
+        <a href="https://discord.com/oauth2/authorize?client_id=967509731587530882&permissions=8&scope=bot" class="invite-bot-button" target="_blank"><button>Inviter sRolePlay Bot <img width="25px" src="https://zupimages.net/up/22/30/dyc4.png"/></button></a>
+    </div>
+
     <div id="content">
-        <p>content</p>
+        <!-- WELCOME SECTION : -->
+        <h1 class="welcome-text">Bienvenue <span id="username"></span> ! 🤗</h1>
+        <p class="welcome-description">Ici, tu pourras retrouver toutes tes transactions, les courbes des valeurs des différentes cryptos que regroupe le bot ainsi que la valeur de ton wallet. Grâce à ce panel, tu ne peux pas modifier les informations de compte Discord mais les actions visées sont celles liés au trading.</p>
+        
+        <ul class="external-links">
+            <li><img src="https://icon-library.com/images/github-icon-white/github-icon-white-6.jpg"/> Repos Github <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></li>
+            <li><img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-4-1.png"/> Lien du serveur Discord <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></li>
+            <li><img src="https://ksociety.rocks/img/api-2x.png"/> API Discord <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></li>
+        </ul>
+
+        <!-- SERVER SECTION : -->
+        <h1 class="server-text">Liste de vos serveurs :</h1>
+        <p class="server-description">Voilà la liste complet des serveurs où vous pouvez invitez le bot. Il suffit de cliquer sur l'icône du serveur que vous voulez et choisir dans le menu déroulant "Inviter le bot".</p>
+        <div id="servers-list"></div> 
     </div>
 </body>
 
-<script type="text/javascript">
+<script type="text/javascript">    
+    $("#servers").hide();
+    $("#loader-2").hide();
+    /* $("#content").hide();
+
+    setTimeout(function(){
+        $("#content").show(300);
+        $("#loader-2").hide();
+    }, 2000); */
+
+    function servers_item_details() {$("#servers").animate({width: "toggle"}, 350);}
+    function close_servers_item_details() {$("#servers").animate({width: "toggle"}, 350);}
+
     window.onload = () => {
         const fragment = new URLSearchParams(window.location.hash.slice(1));
         const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
@@ -57,40 +89,36 @@
         /* SERVER PART : ==================================== */     
         let end_text = "";
 
-        fetch('https://discord.com/api/users/@me/guilds', {
-                headers: {
-                    authorization: `${tokenType} ${accessToken}`,
-                },
-            })
+        fetch('https://discord.com/api/users/@me/guilds', { // Server Discord API URL
+            headers: {
+                authorization: `${tokenType} ${accessToken}`,
+            },
+        })
 
         .then(request => request.json())
         .then(data => {
             for (var i = 0; i < data.length; i++) {
-                end_text += "<img src='https://cdn.discordapp.com/icons/" + data[i].id + "/" + data[i].icon + ".png'/>";
-
                 /* console.log(data[i].name); */
-                /* console.log(result[i].id);
-                console.log(result[i].icon);
-                console.log(result[i].owner); */
+                end_text += "<img onclick='servers_item_details()' class='item' src='https://cdn.discordapp.com/icons/" + data[i].id + "/" + data[i].icon + ".png'/>";
             } 
 
-            /* document.getElementById("servers").innerHTML = end_text; */
+            document.getElementById("servers-list").innerHTML = end_text;
         });
 
         /* USER PART : ==================================== */
-        fetch('https://discord.com/api/users/@me', {
+        fetch('https://discord.com/api/users/@me', { // User Discord API URL
             headers: {
                 authorization: `${tokenType} ${accessToken}`,
             },
         })
 
         .then(result => result.json())
-        .then(response => {
-            /* document.getElementById('name').innerText = ` ${username}#${discriminator}`; */
-            document.getElementById("user-picture").src = "https://cdn.discordapp.com/avatars/" + response.id + "/" + response.avatar + ".jpg";
+        .then(reponse => {
+            document.getElementById("user-picture").src = "https://cdn.discordapp.com/avatars/" + reponse.id + "/" + reponse.avatar + ".jpg";
+            document.getElementById("username").innerHTML = reponse.username;
         })
 
-        .catch(console.error);
+        .catch(console.error);        
     };
 </script>
 
