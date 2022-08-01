@@ -16,6 +16,7 @@ html, body {
     font-size: normal;
     width: 100%;
     font-family: 'Noto Sans', sans-serif;
+    min-width: 1293px;
 }
 
 a {
