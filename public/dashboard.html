@@ -82,16 +82,16 @@
     $(".sidebar-menu").hide();
     $("#header").hide();
     $("#sidebar").hide();
-    $("#content").hide();
+    $("#dashboard-content").hide();
 
     $("#loader-2").show();
     setTimeout(function(){
         $("#header").show(300);
         $("#sidebar").show(300);
-        $("#content").show(300);
+        $("#dashboard-content").show(300);
 
         $("#loader-2").hide();
-    }, 20);
+    }, 3000);
 
     function servers_item_details() {$("#servers").animate({width: "toggle"}, 350);}
     function account_item_details() {$("#account").animate({width: "toggle"}, 350);}
