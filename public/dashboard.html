@@ -18,33 +18,48 @@
 </head>
 
 <body id="dashboard">
-    <header>
-        <img src="" alt="user-picture" id="user-picture"/>
-        <svg id="bell" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+    <header id="header">
+        <img onclick="account_item_details();" src="" alt="user-picture" id="user-picture"/>
+        <svg onclick="notifications_item_details();" id="bell" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
         <input type="text" placeholder="Search anythings, cryptos, trading.." id="search-bar"><svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></input>
     </header>
 
     <div id="loader-2">
-        <img src="https://i.gifer.com/ZZ5H.gif"/>
+        <img src="https://zupimages.net/up/22/30/dyc4.png" class="app_logo"/>
+        <img src="https://i.gifer.com/ZZ5H.gif" class="loader_logo"/>
     </div>
-
+    
     <div id="sidebar">
         <img class="app_logo" src="https://zupimages.net/up/22/30/dyc4.png"/>
         <ul>
             <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></li>
             <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></li>
             <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></li>
-            <li href="\" id="logout"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></li>
+            <a href="/"><li id="logout"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></li></a>
         </ul>
     </div>
 
-    <div class="sidebar-menu" id="servers">
-        <a onclick="close_servers_item_details();" id="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
-        <p>Pour inviter sRolePlay Bot sur vos serveurs, cliquez sur le bouton ci-dessous :</p>
-        <a href="https://discord.com/oauth2/authorize?client_id=967509731587530882&permissions=8&scope=bot" class="invite-bot-button" target="_blank"><button>Inviter sRolePlay Bot <img width="25px" src="https://zupimages.net/up/22/30/dyc4.png"/></button></a>
-    </div>
+    <div id="dashboard-content">
+        <!-- SIDEBAR SECTION : -->
+        <div class="sidebar-menu" id="servers">
+            <a onclick="close_servers_item_details();" id="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+            <p>Pour inviter sRolePlay Bot sur vos serveurs, cliquez sur le bouton ci-dessous :</p>
+            <a href="https://discord.com/oauth2/authorize?client_id=967509731587530882&permissions=8&scope=bot" class="invite-bot-button" target="_blank"><button>Inviter sRolePlay Bot <img width="25px" src="https://zupimages.net/up/22/30/dyc4.png"/></button></a>
+        </div>
+    
+        <div class="sidebar-menu" id="account">
+            <a onclick="close_servers_item_details();" id="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+            <img src="" id="user-avatar"/>
+            <h1 id="user-username"></h1>
+            <p id="email"></p>
+            <p id="user-id"></p>
+        </div>
+    
+        <div class="sidebar-menu" id="notifications">
+            <a onclick="close_servers_item_details();" id="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+            <p>notif</p>
+        </div>
 
-    <div id="content">
         <!-- WELCOME SECTION : -->
         <h1 class="welcome-text">Bienvenue <span id="username"></span> ! 🤗</h1>
         <p class="welcome-description">Ici, tu pourras retrouver toutes tes transactions, les courbes des valeurs des différentes cryptos que regroupe le bot ainsi que la valeur de ton wallet. Grâce à ce panel, tu ne peux pas modifier les informations de compte Discord mais les actions visées sont celles liés au trading.</p>
@@ -63,17 +78,27 @@
 </body>
 
 <script type="text/javascript">    
-    $("#servers").hide();
-    $("#loader-2").hide();
-    /* $("#content").hide();
+    $(".sidebar-menu").hide();
+    $("#header").hide();
+    $("#sidebar").hide();
+    $("#content").hide();
 
+    $("#loader-2").show();
     setTimeout(function(){
+        $("#header").show(300);
+        $("#sidebar").show(300);
         $("#content").show(300);
+
         $("#loader-2").hide();
-    }, 2000); */
+    }, 20);
 
     function servers_item_details() {$("#servers").animate({width: "toggle"}, 350);}
-    function close_servers_item_details() {$("#servers").animate({width: "toggle"}, 350);}
+    function account_item_details() {$("#account").animate({width: "toggle"}, 350);}
+    function notifications_item_details() {$("#notifications").animate({width: "toggle"}, 350);}
+
+    function close_servers_item_details() {
+        $(".sidebar-menu").hide(200);
+    }
 
     window.onload = () => {
         const fragment = new URLSearchParams(window.location.hash.slice(1));
@@ -113,7 +138,11 @@
         .then(result => result.json())
         .then(reponse => {
             document.getElementById("user-picture").src = "https://cdn.discordapp.com/avatars/" + reponse.id + "/" + reponse.avatar + ".jpg";
+            document.getElementById("user-avatar").src = "https://cdn.discordapp.com/avatars/" + reponse.id + "/" + reponse.avatar + ".jpg";
             document.getElementById("username").innerHTML = reponse.username;
+            document.getElementById("user-username").innerHTML = reponse.username;
+            document.getElementById("email").innerHTML = reponse.email;
+            document.getElementById("user-id").innerHTML = "Id : " + reponse.id;
         })
 
         .catch(console.error);        

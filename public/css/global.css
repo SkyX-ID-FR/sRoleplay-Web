@@ -202,6 +202,7 @@ html #sidebar ul #logout {
 
 html #sidebar ul li {
     margin-top: 20px;
+    color: white;
 }
 
 html #sidebar ul li svg {
@@ -261,7 +262,7 @@ html header #user-picture {
 /* END OF DASHBOARD PAGE */
 
 /* CONTENT PAGE : */
-html #content {
+html #dashboard-content {
     margin-top: -140px;
     margin-left: -20%;
     grid-area: 2 / 2 / 6 / 6;
@@ -269,62 +270,62 @@ html #content {
     padding-top: 30px;
 }
 
-html #content .welcome-text {
+html #dashboard-content .welcome-text {
     font-size: 55px;
     letter-spacing: 1px;
 }
 
-html #content .welcome-description {
+html #dashboard-content .welcome-description {
     width: 950px;
     margin-top: -30px;
     font-size: 14px;
 }
 
-html #content .external-links {
+html #dashboard-content .external-links {
     list-style-type: none;
     margin-left: -60px;
 }
 
-html #content .external-links li {
+html #dashboard-content .external-links li {
     float: left;
     margin-left: 20px;
     cursor: pointer;
-    color: #414853;
+    color: #abb4bf;
 }
 
-html #content .external-links li:hover {
-    color: #7682a3;
+html #dashboard-content .external-links li:hover {
+    color: #6f7683;
 }
 
-html #content .external-links li svg {
+html #dashboard-content .external-links li svg {
     width: 15px;
 }
 
-html #content .external-links li img {
+html #dashboard-content .external-links li img {
     width: 25px;
     margin-top: 6px;
     margin-right: 10px;
     float: left;
 }
 
-html #content .server-text {
+html #dashboard-content .server-text {
     margin-top: 150px;
     font-size: 40px;
 }
 
-html #content .server-description {
+html #dashboard-content .server-description {
     width: 700px;
     font-size: 14px;
     margin-top: -20px;
     margin-bottom: 40px;
 }
 
-html #content #servers-list {
+html #dashboard-content #servers-list {
     /* background-color: red; */
     width: 1100px;
 }
 
-html #content #servers-list .item {
+html #dashboard-content #servers-list .item {
     width: 70px;
     border-radius: 100%;
     margin-right: 16px;
@@ -332,7 +333,7 @@ html #content #servers-list .item {
     margin-bottom: 15px;
 }
 
-html #content #servers-list .item:hover {
+html #dashboard-content #servers-list .item:hover {
     transition: all 0.3s;
     transform: scale(1.2);
 }
@@ -350,8 +351,9 @@ html .sidebar-menu {
     position: fixed;
 }
 
-html .sidebar-menu p {
-    font-size: 15px;
+html #servers p {
+    font-size: 13px;
+    width: 230px;
 }
 
 html .sidebar-menu button {
@@ -364,6 +366,7 @@ html .sidebar-menu button {
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-top: 10px;
 }
 
 html .sidebar-menu button:hover {
@@ -371,7 +374,7 @@ html .sidebar-menu button:hover {
     transform: scale(1.1);
 }
 
-html .sidebar-menu button img {
+html #servers button img {
     float: right;
     margin-top: -6px;
     margin-left: 5px;
@@ -380,23 +383,47 @@ html .sidebar-menu button img {
 html .sidebar-menu #close {
     stroke: white;
     position: absolute;
-    right: 15px;
-    top: 10px;
+    right: 25px;
+    top: 20px;
     cursor: pointer;
+}
+
+html #account img {
+    width: 50px;
+    border-radius: 100%;
+}
+
+html #account h1 {
+    font-size: 16px;
+    float: right;
+    margin-right: 120px;
+    margin-top: 3px;
+}
+
+html #account #email {
+    float: right;
+    margin-right: 95px;
+    margin-top: -30px;
 }
 
 /* LOADER STYLE : */
 #loader-2 {
-    width: 30px;
-    height: 32px;
+    width: 150px;
+    height: 200px;
     padding: 10px;
+    margin-left: 45%;
+    margin-top: 15%;
     position: absolute;
-    margin-left: 50%;
-    margin-top: 20%;
 }
 
-#loader-2 img {
+#loader-2 .loader_logo {
     width: 30px;
+    margin-left: 46px;
+    margin-top: 20px;
+}
+
+#loader-2 .app_logo {
+    width: 120px;
 }
 /* END OF LOADER STYLE */
 
