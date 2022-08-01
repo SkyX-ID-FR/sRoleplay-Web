@@ -123,7 +123,7 @@
         .then(data => {
             for (var i = 0; i < data.length; i++) {
                 /* console.log(data[i].name); */
-                end_text += "<img onclick='servers_item_details()' class='item' src='https://cdn.discordapp.com/icons/" + data[i].id + "/" + data[i].icon + ".png'/>";
+                end_text += "<img onerror='this.src=`https://icon-library.com/images/404-error-icon/404-error-icon-6.jpg`;' onclick='servers_item_details()' class='item' src='https://cdn.discordapp.com/icons/" + data[i].id + "/" + data[i].icon + ".png'/>";
             } 
 
             document.getElementById("servers-list").innerHTML = end_text;
